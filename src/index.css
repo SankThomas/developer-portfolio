@@ -1,13 +1,250 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --background-image: linear-gradient(
+    120deg,
+    hsl(169, 100%, 35%),
+    rgba(1, 84, 69, 0.67)
+  );
+  --background-overlay: rgba(0, 0, 0, 0.4);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  overflow: auto;
+}
+
+a {
+  font-family: inherit;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Menu button */
+.menu-btn {
+  position: absolute;
+  right: 80px;
+  margin-top: 50px;
+  z-index: 9999999;
+}
+
+.menu-btn button {
+  background-color: transparent;
+  font-size: 36px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  right: 0;
+  height: 0;
+  overflow: hidden;
+  width: 200px;
+  transition: all 0.5s ease-in-out;
+}
+
+.header.open {
+  height: 100vh;
+  background-color: var(--background-overlay);
+}
+
+.header nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.header nav ul li {
+  margin: 20px 0;
+}
+
+/* Homepage */
+.homepage {
+  background: url("./showcase.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.homepage .overlay {
+  background-image: var(--background-image);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+
+.homepage .overlay h1 {
+  text-transform: uppercase;
+  font-size: 96px;
+}
+
+.homepage .overlay p {
+  font-size: 36px;
+}
+
+.homepage .overlay ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.homepage .overlay ul li {
+  margin: 0 20px;
+}
+
+.homepage .overlay ul li a {
+  font-size: 46px;
+}
+
+/* Projects */
+.projects {
+  background-image: var(--background-image);
+}
+
+.projects h1 {
+  padding: 50px 80px;
+  color: #fff;
+}
+
+.projects .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: auto;
+  gap: 20px;
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.projects .cards h4 {
+  font-size: 24px;
+  margin: 20px 0 10px;
+}
+
+.projects .cards p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.projects .cards ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects .cards ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects .cards ul li a.github {
+  background-color: #333;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.projects .cards ul li a.demo {
+  background-color: #224899;
+  padding: 5px;
+  font-size: 15px;
+}
+
+/* Contacts */
+.contacts {
+  background-image: var(--background-image);
+  height: 100vh;
+}
+
+.contacts h1 {
+  padding: 50px 80px;
+  color: #fff;
+}
+
+.contacts ul {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contacts ul li {
+  margin: 10px 0;
+}
+
+.contacts ul li a {
+  font-size: 30px;
+}
+
+@media (max-width: 1150px) {
+  .projects .cards {
+    padding: 0 20px 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .homepage .overlay h1 {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .menu-btn {
+    right: 30px;
+  }
+
+  .homepage .overlay h1 {
+    font-size: 30px;
+  }
+
+  .homepage .overlay p {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .homepage .overlay ul li a {
+    font-size: 24px;
+  }
+
+  .contacts ul li a {
+    font-size: 18px;
+  }
+
+  .contacts h1,
+  .projects h1 {
+    padding: 50px 30px;
+  }
+
+  .projects .cards {
+    grid-template-columns: 1fr;
+  }
 }
