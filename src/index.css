@@ -4,7 +4,7 @@
     hsl(169, 100%, 35%),
     rgba(1, 84, 69, 0.67)
   );
-  --background-overlay: rgba(0, 0, 0, 0.4);
+  --background-overlay: rgba(0, 0, 0, 0.8);
 }
 
 * {
